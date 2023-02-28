@@ -22,6 +22,11 @@ public class BirdScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && birdAlive) {
             rigidBody.velocity = Vector2.up * flapStrength; }
+        if(transform.position.y < -20)
+        {
+            birdAlive = false;
+            logicScript.GameOver();
+        }
                     
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,4 +35,5 @@ public class BirdScript : MonoBehaviour
         logicScript.GameOver();
         birdAlive = false;
     }
+
 }
